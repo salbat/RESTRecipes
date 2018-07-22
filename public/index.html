@@ -18,6 +18,23 @@
     <pre id="postResponse"></pre>
     <pre id="putResponse"></pre>
     <pre id="deleteResponse"></pre>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>
+                Last Name
+            </th>
+            <th>Phone</th>
+        </tr>
+        <tr>
+            <td id="contactId"></td>
+            <td id="contactFirstName"></td>
+            <td id="contactLastName"></td>
+            <td id="contactPhone"></td>
+        </tr>   
+    </table>
 </div>
     <script>
         function get() {
@@ -29,6 +46,12 @@
                 .done(function(data) {
                     console.log('GET response: ' + JSON.stringify(data, "", 2));
                     $('#getResponse').html(JSON.stringify(data, "", 2)); //test1
+
+                    $('#contactId').html(data.contactId);
+                    $('#contactFirstName').html(data.firstName);
+                    $('#contactLastName').html(data.lastName);
+                    $('#contactPhone').html(data.phone);
+                    
                 })
                 .fail(function(jqXHR, testStatus, err) {
                     console.log('AJAX Error resopnse: ', textStatus);
